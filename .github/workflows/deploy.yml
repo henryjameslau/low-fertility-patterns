@@ -31,7 +31,9 @@ jobs:
         run: npm run verify
 
       - name: Build
-        run: npm run build:preview
+        run: |
+          npm run build:preview
+          cp build/404.html build/index.html
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

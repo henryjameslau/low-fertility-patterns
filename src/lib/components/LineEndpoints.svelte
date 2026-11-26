@@ -9,6 +9,9 @@
 		showCursor = false,
 		trackLabels = false,
 		cursorPrefix = "",
+		showCursorLabel = true,
+		cursorAnnotationAtBottom = false,
+		cursorAnnotation = /** @type {import("svelte").Snippet | null} */ (null),
 		threshold = null,
 		showLabels = true,
 		showSymbols = true,
@@ -118,10 +121,23 @@
 	{#if showCursor}
 		<g class="year-cursor" transform="translate({$width * revealProgress},0)">
 			<line y1="0" y2={$height} stroke="#707071" stroke-dasharray="3 3" opacity="0.4" />
-			<text y="-10" text-anchor={revealProgress > 0.8 ? "end" : "start"}>
-				{cursorPrefix}{currentYear}
-			</text>
+			{#if showCursorLabel}
+				<text y="-10" text-anchor={revealProgress > 0.8 ? "end" : "start"}>
+					{cursorPrefix}{currentYear}
+				</text>
+			{/if}
 		</g>
+	{/if}
+	{#if cursorAnnotation}
+		<foreignObject
+			class="cursor-annotation"
+			x={$width * revealProgress + 10}
+			y={cursorAnnotationAtBottom ? Math.max(0, $height - 180) : 0}
+			width="125"
+			height="180"
+		>
+			{@render cursorAnnotation()}
+		</foreignObject>
 	{/if}
 </g>
 

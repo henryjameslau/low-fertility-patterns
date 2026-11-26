@@ -13,6 +13,7 @@
 		yMax = null
 	} = $props();
 
+	let viewportWidth = $state(1440);
 	const motion = reducedMotion();
 	const displayedYear = $derived(motion.current ? 2023 : currentYear);
 	const chartData = $derived(
@@ -34,6 +35,8 @@
 	);
 </script>
 
+<svelte:window bind:innerWidth={viewportWidth} />
+
 <div class="waves-chart">
 	<LineChartWithLegend
 		data={chartData}
@@ -48,20 +51,26 @@
 		threshold={1.3}
 		showLabels={false}
 		showSymbols={false}
+		showCursorLabel={false}
+		cursorAnnotationAtBottom={viewportWidth < 992}
 		{highlighted}
-	/>
-	<div class="counter">
-		<strong>{highlighted.length}</strong>
-		<span>countries in lowest-low fertility</span>
-		<span class="year-label">in {displayedYear}</span>
-		{#if missingNames.length}
-			<span class="coverage-note">
-				Data for {coveredCountries.size} of {countries.length} countries. Missing: {missingNames.join(
-					", "
-				)}.
-			</span>
-		{/if}
-	</div>
+	>
+		{#snippet cursorAnnotation()}
+			<div class="counter">
+				<strong>{highlighted.length}</strong>
+				<span>countries in lowest-low fertility</span>
+				<span class="year-label">in {displayedYear}</span>
+			</div>
+		{/snippet}
+	</LineChartWithLegend>
+	<p class="ons-u-vh">{highlighted.length} countries in lowest-low fertility in {displayedYear}.</p>
+	{#if missingNames.length}
+		<p class="coverage-note">
+			Data for {coveredCountries.size} of {countries.length} countries. Missing: {missingNames.join(
+				", "
+			)}.
+		</p>
+	{/if}
 </div>
 
 <style>
@@ -71,14 +80,12 @@
 	}
 
 	.counter {
-		position: absolute;
-		top: 2.5rem;
-		right: 0;
 		width: 125px;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
 		color: #206095;
+		background: white;
 	}
 
 	.counter strong {
@@ -97,7 +104,7 @@
 		color: #707071;
 	}
 
-	.counter .coverage-note {
+	.coverage-note {
 		margin-top: 0.5rem;
 		font-size: 0.75rem;
 		color: #707071;

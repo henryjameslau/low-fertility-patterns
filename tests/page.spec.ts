@@ -47,6 +47,26 @@ test.describe("Low Fertility Patterns - Scrollytelling Page", () => {
 		await expect(page.locator('section[data-id="section-0"] .section-text')).toHaveCount(1);
 	});
 
+	test("conclusion appears before the explorer without JavaScript", async ({ browser, page }) => {
+		const staticPage = await browser.newPage({ javaScriptEnabled: false });
+		try {
+			await staticPage.goto(page.url());
+			const conclusion = staticPage.locator("#conclusion");
+			await expect(conclusion).toBeVisible();
+			await expect(conclusion).toContainText("Later births do not always make up");
+			expect(
+				await conclusion.evaluate((element) =>
+					Boolean(
+						element.compareDocumentPosition(document.querySelector(".explorer-section")!) &
+						Node.DOCUMENT_POSITION_FOLLOWING
+					)
+				)
+			).toBe(true);
+		} finally {
+			await staticPage.close();
+		}
+	});
+
 	for (const width of [1440, 390]) {
 		test(`chart titles describe the comparison separately from section headings at ${width}px`, async ({
 			page
@@ -638,8 +658,10 @@ test.describe("Low Fertility Patterns - Scrollytelling Page", () => {
 			expect(firstTicks.map((tick) => tick.trim())).toEqual(["0", "2", "4", "6"]);
 			const tickPositions = await background
 				.locator(".y-axis .tick text")
-				.evaluateAll((elements) => elements.map((element) => element.getBoundingClientRect().y));
-			for (const offset of [0.2, 0.6, 0.2]) {
+				.evaluateAll((elements) => elements.map((element) => element.getBoundingClientRect().y))
+				.then((positions) => positions.map((y) => y - firstBounds.y));
+			let wavesY: number | undefined;
+			for (const offset of [0.05, 0.2, 0.6, 0.2, 0.85]) {
 				await scrollScene(page, 1, offset);
 				await expect(page.locator(".chart-header h2")).toHaveText(
 					"Lowest-low fertility reached countries across Europe, Asia, Latin America and Africa"
@@ -648,10 +670,11 @@ test.describe("Low Fertility Patterns - Scrollytelling Page", () => {
 					.poll(async () =>
 						Number(await background.locator(".line-endpoints").getAttribute("data-progress"))
 					)
-					.toBeCloseTo(offset / 0.8, 2);
+					.toBeCloseTo(Math.min(1, offset / 0.8), 2);
 				const bounds = (await background.locator("svg").boundingBox())!;
 				expect(bounds.x).toBeCloseTo(firstBounds.x);
-				expect(bounds.y).toBeCloseTo(firstBounds.y);
+				wavesY ??= bounds.y;
+				expect(bounds.y).toBeCloseTo(wavesY);
 				expect(bounds.width).toBeCloseTo(firstBounds.width);
 				expect(bounds.height).toBeCloseTo(firstBounds.height);
 				const yearTicks = await background.locator(".x-axis .tick text").evaluateAll((elements) =>
@@ -666,11 +689,12 @@ test.describe("Low Fertility Patterns - Scrollytelling Page", () => {
 				expect(await background.locator(".y-axis .tick text").allTextContents()).toEqual(
 					firstTicks
 				);
-				expect(
-					await background
-						.locator(".y-axis .tick text")
-						.evaluateAll((elements) => elements.map((element) => element.getBoundingClientRect().y))
-				).toEqual(tickPositions);
+				const positions = await background
+					.locator(".y-axis .tick text")
+					.evaluateAll((elements) => elements.map((element) => element.getBoundingClientRect().y));
+				for (const [index, y] of positions.entries()) {
+					expect(y - bounds.y).toBeCloseTo(tickPositions[index]);
+				}
 				await expect(
 					background.locator(".legend, .highlighted-info, .direct-label, .endpoint-symbol")
 				).toHaveCount(0);
@@ -682,7 +706,7 @@ test.describe("Low Fertility Patterns - Scrollytelling Page", () => {
 						])
 				).toEqual(["#206095"]);
 				const year = Number(
-					(await background.locator(".year-label").textContent())!.replace("in ", "")
+					(await background.locator(".counter .year-label").textContent())!.replace("in ", "")
 				);
 				const expected = records.filter(
 					(record) =>
@@ -690,6 +714,21 @@ test.describe("Low Fertility Patterns - Scrollytelling Page", () => {
 				).length;
 				await expect(background.locator(".counter strong")).toHaveText(String(expected));
 				await expect(background.locator(".counter strong")).toHaveCSS("font-size", "64px");
+				await expect(background.locator(".counter .year-label")).toHaveCount(1);
+				await expect(background.locator(".year-cursor text")).toHaveCount(0);
+				const cursorBounds = (await background.locator(".year-cursor line").boundingBox())!;
+				const counterBounds = (await background.locator(".counter").boundingBox())!;
+				expect(Math.abs(counterBounds.x - cursorBounds.x - 10)).toBeLessThan(1);
+				expect(counterBounds.x).toBeGreaterThanOrEqual(bounds.x);
+				expect(counterBounds.x + counterBounds.width).toBeLessThanOrEqual(
+					bounds.x + bounds.width + 1
+				);
+				if (width < 992) {
+					expect(counterBounds.y).toBeGreaterThan(cursorBounds.y);
+					expect(counterBounds.y + counterBounds.height).toBeLessThanOrEqual(
+						cursorBounds.y + cursorBounds.height + 1
+					);
+				}
 				await expect(background.locator(".coverage-note")).toHaveCount(0);
 				await expect(background.locator(".country-line")).toHaveCount(34);
 			}

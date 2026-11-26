@@ -342,8 +342,24 @@
 	</Scroller>
 {/if}
 
-<!-- Explorer Section -->
+<!-- Conclusion and explorer -->
 <Main>
+	<Section id="conclusion" title="There is no single path to low fertility" marginTop={true}>
+		<p>
+			Similar fertility rates can hide different histories. Some countries have seen temporary
+			recoveries, while others have fallen further.
+		</p>
+		<p>
+			Later births do not always make up for fewer births at younger ages. Following birth cohorts
+			helps distinguish a change in when women have children from a change in how many they have
+			overall.
+		</p>
+		<p>
+			These patterns describe change, not its causes or what will happen next. Use the explorer
+			below to compare countries' annual fertility trajectories for yourself.
+		</p>
+	</Section>
+
 	<Section title="Compare country experiences" marginTop={true}>
 		<p>
 			Select and compare up to four countries' fertility trajectories over 1950-2023 from 34

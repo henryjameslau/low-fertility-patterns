@@ -27,6 +27,9 @@
 		yTicks = /** @type {number | number[]} */ (4),
 		trackLabels = false,
 		cursorPrefix = "",
+		showCursorLabel = true,
+		cursorAnnotationAtBottom = false,
+		cursorAnnotation = /** @type {import("svelte").Snippet | null} */ (null),
 		threshold = null,
 		colors = ["#206095", "#A8BD3A", "#003C57", "#27A0CC"],
 		showLabels = true,
@@ -73,6 +76,9 @@
 					{revealProgress}
 					{trackLabels}
 					{cursorPrefix}
+					{showCursorLabel}
+					{cursorAnnotationAtBottom}
+					{cursorAnnotation}
 					{threshold}
 					{showLabels}
 					{showSymbols}

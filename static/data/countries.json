@@ -1,0 +1,335 @@
+[
+  {
+    "id": "ITA",
+    "name": "Italy",
+    "paper_label": "Southern Europe",
+    "group": "Southern Europe",
+    "type": "Table1",
+    "population_2023": 57530000,
+    "notes": "Entry 1993, stalled and resumed lowest-low"
+  },
+  {
+    "id": "ESP",
+    "name": "Spain",
+    "paper_label": "Southern Europe",
+    "group": "Southern Europe",
+    "type": "Table1",
+    "population_2023": 47660000,
+    "notes": ""
+  },
+  {
+    "id": "PRT",
+    "name": "Portugal",
+    "paper_label": "Southern Europe",
+    "group": "Southern Europe",
+    "type": "Table1",
+    "population_2023": 10457000,
+    "notes": ""
+  },
+  {
+    "id": "GRC",
+    "name": "Greece",
+    "paper_label": "Southern Europe",
+    "group": "Southern Europe",
+    "type": "Table1",
+    "population_2023": 10640000,
+    "notes": ""
+  },
+  {
+    "id": "MLT",
+    "name": "Malta",
+    "paper_label": "Southern Europe",
+    "group": "Southern Europe",
+    "type": "Table1",
+    "population_2023": 516000,
+    "notes": ""
+  },
+  {
+    "id": "BGR",
+    "name": "Bulgaria",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 6878000,
+    "notes": ""
+  },
+  {
+    "id": "CZE",
+    "name": "Czechia",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 10510000,
+    "notes": "Early/late fertility pattern highlight"
+  },
+  {
+    "id": "LVA",
+    "name": "Latvia",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 1884000,
+    "notes": ""
+  },
+  {
+    "id": "SVN",
+    "name": "Slovenia",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 2119000,
+    "notes": ""
+  },
+  {
+    "id": "RUS",
+    "name": "Russia",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 143210000,
+    "notes": ""
+  },
+  {
+    "id": "BLR",
+    "name": "Belarus",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 9349000,
+    "notes": ""
+  },
+  {
+    "id": "UKR",
+    "name": "Ukraine",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 38000000,
+    "notes": ""
+  },
+  {
+    "id": "EST",
+    "name": "Estonia",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 1366000,
+    "notes": ""
+  },
+  {
+    "id": "HUN",
+    "name": "Hungary",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 9710000,
+    "notes": ""
+  },
+  {
+    "id": "SVK",
+    "name": "Slovakia",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 5460000,
+    "notes": ""
+  },
+  {
+    "id": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 3233000,
+    "notes": ""
+  },
+  {
+    "id": "ROU",
+    "name": "Romania",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 19053000,
+    "notes": ""
+  },
+  {
+    "id": "LTU",
+    "name": "Lithuania",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 2801000,
+    "notes": ""
+  },
+  {
+    "id": "POL",
+    "name": "Poland",
+    "paper_label": "Former Communist European countries",
+    "group": "Former Communist European countries",
+    "type": "Table1",
+    "population_2023": 37654000,
+    "notes": ""
+  },
+  {
+    "id": "DEU",
+    "name": "Germany",
+    "paper_label": "North-Central Europe",
+    "group": "North-Central Europe",
+    "type": "Table1",
+    "population_2023": 83369000,
+    "notes": "Entry 1993, narrative anchor"
+  },
+  {
+    "id": "FIN",
+    "name": "Finland",
+    "paper_label": "North-Central Europe",
+    "group": "North-Central Europe",
+    "type": "Table1",
+    "population_2023": 5552000,
+    "notes": "Most recent entrant (2023)"
+  },
+  {
+    "id": "HKG",
+    "name": "Hong Kong",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 7408000,
+    "notes": "SAR China, separate entity"
+  },
+  {
+    "id": "MAC",
+    "name": "Macao",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 695000,
+    "notes": "SAR China, separate entity"
+  },
+  {
+    "id": "SGP",
+    "name": "Singapore",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 5917000,
+    "notes": ""
+  },
+  {
+    "id": "KOR",
+    "name": "Republic of Korea",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 51329000,
+    "notes": "Early/late fertility pattern highlight"
+  },
+  {
+    "id": "TWN",
+    "name": "Taiwan",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 23859000,
+    "notes": "Separate entity"
+  },
+  {
+    "id": "JPN",
+    "name": "Japan",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 123294000,
+    "notes": "Figure 3 comparison (early/late)"
+  },
+  {
+    "id": "THA",
+    "name": "Thailand",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 71801000,
+    "notes": "Figure 3 comparison (early/late)"
+  },
+  {
+    "id": "CHN",
+    "name": "China",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 1425887000,
+    "notes": "Excludes Hong Kong and Macao"
+  },
+  {
+    "id": "ARE",
+    "name": "United Arab Emirates",
+    "paper_label": "Asia",
+    "group": "Asia",
+    "type": "Table1",
+    "population_2023": 9890000,
+    "notes": ""
+  },
+  {
+    "id": "PRI",
+    "name": "Puerto Rico",
+    "paper_label": "Latin America and the Caribbean",
+    "group": "Latin America and the Caribbean",
+    "type": "Table1",
+    "population_2023": 3195000,
+    "notes": "US territory, separate entity"
+  },
+  {
+    "id": "CUW",
+    "name": "Curaçao",
+    "paper_label": "Latin America and the Caribbean",
+    "group": "Latin America and the Caribbean",
+    "type": "Table1",
+    "population_2023": 192000,
+    "notes": "Dutch Caribbean, separate entity"
+  },
+  {
+    "id": "CHL",
+    "name": "Chile",
+    "paper_label": "Latin America and the Caribbean",
+    "group": "Latin America and the Caribbean",
+    "type": "Table1",
+    "population_2023": 19604000,
+    "notes": "Early/late fertility pattern highlight"
+  },
+  {
+    "id": "MUS",
+    "name": "Mauritius",
+    "paper_label": "Africa",
+    "group": "Africa",
+    "type": "Table1",
+    "population_2023": 1265000,
+    "notes": "Only Africa entry"
+  },
+  {
+    "id": "SWE",
+    "name": "Sweden",
+    "paper_label": "Comparator",
+    "group": "Comparator",
+    "type": "Comparator",
+    "population_2023": 10520000,
+    "notes": "Figure 3 comparison with Italy"
+  },
+  {
+    "id": "USA",
+    "name": "United States of America",
+    "paper_label": "Comparator",
+    "group": "Comparator",
+    "type": "Comparator",
+    "population_2023": 338290000,
+    "notes": "Figure 3 comparison with Japan"
+  },
+  {
+    "id": "AUS",
+    "name": "Australia",
+    "paper_label": "Comparator",
+    "group": "Comparator",
+    "type": "Comparator",
+    "population_2023": 26069000,
+    "notes": "Figure 3 comparison with Thailand"
+  }
+]

@@ -1,0 +1,12 @@
+/node_modules/
+/.env*
+/*.pdf
+/*.epub
+/WPP2024_*.xlsx
+
+.DS_Store
+*.bak
+.svelte-kit/
+/build/
+/static/data/json/
+/static/data/places.csv

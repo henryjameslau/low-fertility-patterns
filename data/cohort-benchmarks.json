@@ -1,0 +1,16 @@
+{
+  "source": "UN WPP 2024, completed cohort fertility estimates",
+  "countries_processed": 37,
+  "validated_at": "2026-11-25T14:11:48.846Z",
+  "cohort_coverage": {
+    "fully_observed": "1935-1974",
+    "imputed_ages_40_49": "1975-1984",
+    "early_fertility_ages": "15-29",
+    "late_fertility_ages": "30-49"
+  },
+  "notes": [
+    "Completed cohort fertility represents live births per woman for specified birth cohort",
+    "Birth cohort year represents year of birth of mother",
+    "Paper uses these cohorts with ASFR transforms to compare early vs late fertility timing"
+  ]
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script>
+			// Force browser to add a trailing slash before the app hydrates
+			(function () {
+				var path = location.pathname;
+				if (!/\/$/.test(path) && !/\.[^/]+$/.test(path)) {
+					location.replace(path + "/" + location.search + location.hash);
+				}
+			})();
+		</script>
+		<link href="/low-fertility-patterns/_app/immutable/entry/start.BG99qrNI.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/CZQObPxN.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/Dix12R3o.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/entry/app.qX2hP9Gb.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/CLyI4NoH.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/CCenxTox.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/BYx7eOZo.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/CYr7XhEd.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/nodes/0.CH3Piqxj.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/C2p3BqdB.js" rel="modulepreload">
+		<link href="/low-fertility-patterns/_app/immutable/chunks/C49gtUHu.js" rel="modulepreload">
+		
+		<link href="/low-fertility-patterns/_app/immutable/assets/0.BSJxi-ux.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="svelte">
+			<script>
+				{
+					__sveltekit_nwlqe5 = {
+						base: "/low-fertility-patterns",
+						assets: "/low-fertility-patterns"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/low-fertility-patterns/_app/immutable/entry/start.BG99qrNI.js"),
+						import("/low-fertility-patterns/_app/immutable/entry/app.qX2hP9Gb.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
